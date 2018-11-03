@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +31,11 @@ public class HelloWorld {
         model.addAttribute("list",list);
         System.out.println("HelloWorld.printHello-----");
         return "hello";
+    }
+
+    @ResponseBody
+    @RequestMapping("/json")
+    public User getUser(){
+        return new User("admin","2324");
     }
 }
