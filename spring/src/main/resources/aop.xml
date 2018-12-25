@@ -7,10 +7,6 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
-    <bean id="htmlHelloWorld" class="com.example.aop.HtmlHelloWorld"/>
-    <bean id="pdfHelloWorld" class="com.example.aop.PdfHelloWold"/>
-    <bean id="timeHandler" class="com.example.aop.TimeHandler"/>
-    <bean id="logHandler" class="com.example.aop.LogHandler"/>
 
     <aop:config>
         <aop:aspect id="time" ref="timeHandler" order="1">
@@ -20,9 +16,12 @@
         </aop:aspect>
 
         <aop:aspect id="log" ref="logHandler" order="2">
-            <aop:pointcut id="printLog" expression="execution(* com.example.aop.HelloWorld.*(..))"/>
+            <aop:pointcut id="printLog" expression="execution(* com.example.aop.*.*(..))"/>
             <aop:before method="logBefore" pointcut-ref="printLog"/>
-            <aop:after method="logAfter" pointcut-ref="printLog"/>
+            <aop:after method="logAfter"  pointcut-ref="printLog"/>
+            <aop:after-returning method="logAfterReturn" returning="result" pointcut-ref="printLog"/>
+            <aop:after-throwing method="logAfterThrowing" throwing="throwable" pointcut-ref="printLog"/>
         </aop:aspect>
+
     </aop:config>
 </beans>

@@ -3,4 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="htmlHelloWorld" class="com.example.aop.HtmlHelloWorld"/>
+    <bean id="pdfHelloWorld" class="com.example.aop.PdfHelloWold"/>
+    <bean id="timeHandler" class="com.example.aop.TimeHandler"/>
+    <bean id="logHandler" class="com.example.aop.LogHandler"/>
+    <bean id="userService" class="com.example.aop.UserServiceImpl"/>
 </beans>

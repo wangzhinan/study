@@ -27,6 +27,14 @@ ${message}
         <td>测试：${s}</td>
     </tr>
 </c:forEach>
----------------------
+
+<c:choose>
+    <c:when test="${users.size() > 0}">
+        大于0
+    </c:when>
+    <c:otherwise>
+        小于0
+    </c:otherwise>
+</c:choose>
 </body>
 </html>

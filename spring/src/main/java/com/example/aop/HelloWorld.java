@@ -5,6 +5,6 @@ package com.example.aop;
  * DateTime: 2018/10/31 13:28
  */
 public interface HelloWorld {
-    void hello(String s);
+    int hello(String s);
     void print(String s);
 }

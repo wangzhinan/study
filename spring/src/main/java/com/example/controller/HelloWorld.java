@@ -1,11 +1,13 @@
 package com.example.controller;
 
+import com.example.model.Response;
 import com.example.model.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -34,8 +36,19 @@ public class HelloWorld {
     }
 
     @ResponseBody
-    @RequestMapping("/json")
-    public User getUser(){
-        return new User("admin","2324");
+    @RequestMapping("/getUser")
+    public User getUser(@RequestParam String id,@RequestParam String password){
+        return new User(id,password);
+    }
+    @ResponseBody
+    @RequestMapping(value = "/user/login",method = RequestMethod.POST)
+    public Response<User> login(@RequestParam String param){
+        System.out.println("param = " + param);
+        Response<User> response = new Response<>();
+        response.setCode(0);
+        response.setMessage("success");
+        User user = new User();
+        response.setData(user);
+        return response;
     }
 }

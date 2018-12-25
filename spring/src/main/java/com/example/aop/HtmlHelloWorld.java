@@ -6,12 +6,14 @@ package com.example.aop;
  */
 public class HtmlHelloWorld implements HelloWorld {
     @Override
-    public void hello(String s) {
-        System.out.println("HtmlHelloWorld.hello---"+s);
+    public int hello(String s) {
+        System.out.println("HtmlHelloWorld.hello----"+s);
+        return 0;
     }
 
     @Override
     public void print(String s) {
         System.out.println("HtmlHelloWorld.print----"+s);
     }
+
 }

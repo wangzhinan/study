@@ -6,12 +6,13 @@ package com.example.aop;
  */
 public class PdfHelloWold implements HelloWorld {
     @Override
-    public void hello(String s) {
-        System.out.println("PdfHelloWold.hello---"+s);
+    public int hello(String s) {
+        System.out.println("PdfHelloWold.hello---" + s);
+        return 1;
     }
 
     @Override
     public void print(String s) {
-        System.out.println("PdfHelloWold.print---"+s);
+        System.out.println("PdfHelloWold.print---" + s);
     }
 }
